@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 require("dotenv").config();
 
-const scrapeLogic = async (res) => {
+const scrapeLogic = async (url,res) => {
     const browser = await puppeteer.launch({
         args: [
             "--disable-setuid-sandbox",
@@ -17,7 +17,7 @@ const scrapeLogic = async (res) => {
     try {
         const page = await browser.newPage();
 
-        await page.goto('https://shopee.co.th/%F0%9F%8D%85-TOMATAL-%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%8A%E0%B8%87%E0%B8%A1%E0%B8%B0%E0%B9%80%E0%B8%82%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%97%E0%B8%A8-3-%E0%B8%AA%E0%B8%B5-%E0%B8%9C%E0%B8%87%E0%B8%8A%E0%B8%87%E0%B8%82%E0%B8%B2%E0%B8%A7-%E0%B8%9C%E0%B8%87%E0%B8%8A%E0%B8%87%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B8%A1%E0%B8%B0%E0%B9%80%E0%B8%82%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%97%E0%B8%A8-50-g.-i.78549877.19973212653?sp_atk=cb91621b-a8e1-4ced-99d4-de69f09a36e4&xptdk=cb91621b-a8e1-4ced-99d4-de69f09a36e4');
+        await page.goto(url);
 
         // Set screen size
         await page.setViewport({ width: 1080, height: 1024 });
