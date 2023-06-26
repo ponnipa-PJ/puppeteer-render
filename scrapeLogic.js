@@ -17,15 +17,16 @@ const scrapeLogic = async (url,res) => {
     try {
         const page = await browser.newPage();
 
-        await page.setDefaultNavigationTimeout(0);
+        // await page.setDefaultNavigationTimeout(0);
         
-        await page.goto(url,{ waitUntil: 'load' });
+        await page.goto(url);
 
         // Set screen size
         await page.setViewport({ width: 1080, height: 1024 });
 
         const textSelector = await page.waitForSelector(
-            '.product-detail'
+            // '.product-detail'
+            '.pw-post-title'
         );
         const fullTitle = await textSelector?.evaluate(el => el.textContent);
 
