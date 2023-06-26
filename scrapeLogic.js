@@ -19,7 +19,7 @@ const scrapeLogic = async (url,res) => {
 
         await page.setDefaultNavigationTimeout(0);
         
-        await page.goto(url);
+        await page.goto(url,{ waitUntil: 'load' });
 
         // Set screen size
         await page.setViewport({ width: 1080, height: 1024 });
