@@ -25,8 +25,7 @@ const scrapeLogic = async (url,res) => {
         await page.setViewport({ width: 1080, height: 1024 });
 
         const textSelector = await page.waitForSelector(
-            // '.product-detail'
-            '.pw-post-title'
+            '.product-detail'
         );
         const fullTitle = await textSelector?.evaluate(el => el.textContent);
 
